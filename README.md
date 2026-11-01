@@ -6,6 +6,10 @@
 
 Read public Reddit posts and comments from a host that Reddit blocks.
 
+Built so an AI agent can use Reddit as a source: `--format json` returns a shape a model can reason
+over, exit codes separate "no such post" from "we are blocked", and a ready-made agent skill ships
+with it. It also works fine as an ordinary CLI.
+
 ```bash
 reddit-reach posts LocalLLaMA --limit 5
 reddit-reach latest LocalLLaMA          # newest archived post + how far behind it is
