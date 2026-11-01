@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "reddit-reach"
+version = "0.1.0"
+description = "Read public Reddit posts and comments from a host that Reddit blocks, via the Arctic Shift archive."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Irfan Zulkifle", email = "irfanzulkifle@gmail.com" }]
+keywords = ["reddit", "archive", "scraper", "agent", "hermes", "datacenter-ip"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Internet :: WWW/HTTP",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[project.scripts]
+reddit-reach = "reddit_reach.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/irfanzulkifle/reddit-reach"
+Issues = "https://github.com/irfanzulkifle/reddit-reach/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/reddit_reach"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
